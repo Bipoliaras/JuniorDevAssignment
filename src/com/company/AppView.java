@@ -91,63 +91,11 @@ public class AppView {
         alert.showAndWait();
     }
 
-    public int getFirstNumberInput() {
+    public TextField getFirstNumberInput() { return firstNumberInput; }
 
-        int input;
+    public TextField getLastNumberInput() { return lastNumberInput; }
 
-        try {
-            input = Integer.parseInt(firstNumberInput.getText());
-            if (input > 0) {
-                return input;
-            } else {
-                alertCreation("Error", "Negative number",
-                        "A negative number was entered in the input field");
-                return -1;
-            }
-        } catch (NumberFormatException ex) {
-            alertCreation("Error", "A NumberFormatException has occured",
-                    "A non number was entered in the input field");
-            return -1;
-        }
-    }
-
-    public int getLastNumberInput() {
-        int input;
-
-        try {
-            input = Integer.parseInt(lastNumberInput.getText());
-            if (input > 0) {
-                return input;
-            } else {
-                alertCreation("Error", "Negative number",
-                        "A negative number was entered in the input field");
-                return -1;
-            }
-        } catch (NumberFormatException ex) {
-            alertCreation("Error", "A NumberFormatException has occured",
-                    "A non number was entered in the input field");
-            return -1;
-        }
-    }
-
-    public int getIncreaseAmountInput() {
-        int input;
-
-        try {
-            input = Integer.parseInt(increaseAmountInput.getText());
-            if (input > 0) {
-                return input;
-            } else {
-                alertCreation("Error", "Negative number",
-                        "A negative number was entered in the input field");
-                return -1;
-            }
-        } catch (NumberFormatException ex) {
-            alertCreation("Error", "A NumberFormatException has occured",
-                    "A non number was entered in the input field");
-            return -1;
-        }
-    }
+    public TextField getIncreaseAmountInput() { return increaseAmountInput; }
 
     public Label getStatusLabel() {
         return factorisationStatusLabel;
@@ -156,6 +104,5 @@ public class AppView {
     public ProgressBar getProgressBar() {
         return factorisationProgress;
     }
-
 
 }

@@ -8,7 +8,7 @@ public class Factoriser {
      * @param number - the number for which we need to get the prime factors
      */
 
-    public String factorisation(int number) {
+    public static String factorisation(int number) {
 
         String result = "";
 

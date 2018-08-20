@@ -9,16 +9,19 @@ public class FactorisationTask extends Task<Void> {
     private int lastNumber;
     private int increaseAmount;
     private String fileName;
+    private Factoriser mainFactoriser;
 
     public FactorisationTask() {
 
     }
 
-    public FactorisationTask(int firstNumber, int lastNumber, int increaseAmount, String file) {
+    public FactorisationTask(int firstNumber, int lastNumber, int increaseAmount, String file,
+                             Factoriser factoriser) {
         this.firstNumber = firstNumber;
         this.lastNumber = lastNumber;
         this.increaseAmount = increaseAmount;
         this.fileName = file;
+        this.mainFactoriser = factoriser;
     }
 
     @Override
@@ -26,7 +29,6 @@ public class FactorisationTask extends Task<Void> {
 
         ResultsWriter resultsWriter = new ResultsWriter(fileName);
         resultsWriter.resultFileCreation();
-
 
         long startTime;
         long timeDifference;
@@ -43,9 +45,7 @@ public class FactorisationTask extends Task<Void> {
             for (int i = firstNumber; i < lastNumber; i += increaseAmount) {
                 updateMessage("Skaldomas skaičius " + i);
 
-
                 startTime = System.currentTimeMillis();
-                Factoriser mainFactoriser = new Factoriser();
                 String factorisationResult = mainFactoriser.factorisation(i);
                 resultsWriter.factorisationResult(startTime, i, factorisationResult);
 
